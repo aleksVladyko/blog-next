@@ -20,9 +20,10 @@ export async function generateMetadata({
 
 export default async function Post({ params: { id } }: Props) {
     const post = await getData(id);
-    const author = await getAuthorPost(id);
+    const author = await getAuthorPost(post.userId);
     const comments = await getCommentsPostId(id);
-
+   console.log(post);
+   
     return (
         <>
             <h1 style={{ color: "lightcoral" }}>Author: {author.username}</h1>

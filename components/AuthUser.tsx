@@ -1,40 +1,40 @@
-"use client";
-import { useStore } from "@nanostores/react";
-import { $users, User, addUser } from "@/store/users";
-import { useState } from "react";
+'use client'
+import { useStore } from '@nanostores/react'
+import { $users, User, addUser } from '@/store/users'
+import { useState } from 'react'
 
 const AuthUser = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const allUsers = useStore($users);
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const allUsers = useStore($users)
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setEmail(event.target.value);
-    };
+        setEmail(event.target.value)
+    }
 
     const handlePasswordChange = (
         event: React.ChangeEvent<HTMLInputElement>
     ) => {
-        setPassword(event.target.value);
-    };
+        setPassword(event.target.value)
+    }
 
     const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
+        event.preventDefault()
 
-        const user: User = { email, password };
-        addUser(user);
+        const user: User = { email, password }
+        addUser(user)
 
-        setEmail("");
-        setPassword("");
-    };
+        setEmail('')
+        setPassword('')
+    }
 
-    console.log(allUsers);
+    console.log(allUsers)
 
     return (
         <div className="d-flex justify-content-center align-items-center flex-column mt-4">
             <form
                 // onSubmit={handleSubmit}
-                style={{ height: "200px" }}
+                style={{ height: '200px' }}
                 className="
                flex-column
                gap-2
@@ -72,6 +72,6 @@ const AuthUser = () => {
                 ))}
             </ul>
         </div>
-    );
-};
-export default AuthUser;
+    )
+}
+export default AuthUser
